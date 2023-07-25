@@ -1,0 +1,31 @@
+class Solution {
+    public int majorityElement(int[] nums) {
+        HashMap<Integer,Integer> hm=new HashMap<>();
+        int r;
+        for(int i=0;i<nums.length;i++)
+        {
+            if(!hm.containsKey(nums[i]))
+            {
+                hm.put(nums[i],1);
+            }
+            else
+            {
+                r=hm.get(nums[i]);
+                r=r+1;
+                hm.put(nums[i],r);
+            }
+            
+        }
+        int c=Integer.MIN_VALUE;
+        int ans=0;
+        for(Integer key:hm.keySet())
+        {
+            if(hm.get(key)>c)
+            {
+                c=hm.get(key);
+                ans=key;
+            }
+        }
+       return ans; 
+    }
+}
