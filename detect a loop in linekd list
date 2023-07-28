@@ -1,0 +1,17 @@
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        ListNode a=head;
+        ListNode b=head;
+        while(a!=null&&a.next!=null)
+        {
+             if(a.next.next==b.next)
+            {
+                return true;
+            }
+            a=a.next.next;
+            b=b.next;
+           
+        }
+        return false;
+    }
+}
